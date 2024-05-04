@@ -1,0 +1,126 @@
+board: MKS-DLC32 V2.1
+name: Ladybug Plotter
+meta: (23.03.2024) by Inva
+
+
+
+stepping:
+  engine: I2S_STATIC
+  idle_ms: 0
+  pulse_us: 4
+  dir_delay_us: 1
+  disable_delay_us: 0
+  
+  
+kinematics:
+  corexy:     
+axes:
+
+  x:
+    steps_per_mm: 80.48
+    max_rate_mm_per_min: 14000.000
+    acceleration_mm_per_sec2: 1500.000
+    max_travel_mm: 525.000
+    soft_limits: false
+    homing:
+      cycle: 1
+      positive_direction: false
+      mpos_mm: 0.000
+      feed_mm_per_min: 300.000
+      seek_mm_per_min: 3000.000
+      settle_ms: 500
+      seek_scaler: 1.100
+      feed_scaler: 1.100
+
+    motor0:
+      limit_neg_pin: gpio.36:low
+      hard_limits: false
+      pulloff_mm: 4.000
+      stepstick:
+        step_pin: I2SO.1
+        direction_pin: I2SO.2:low
+
+
+  y:
+    steps_per_mm: 80.48
+    max_rate_mm_per_min: 14000.000
+    acceleration_mm_per_sec2: 1500.000
+    max_travel_mm: 1000.000
+    soft_limits: false
+    homing:
+      cycle: 2
+      positive_direction: false
+      mpos_mm: 0.000
+      feed_mm_per_min: 300.000
+      seek_mm_per_min: 3000.000
+      settle_ms: 500
+      seek_scaler: 1.100
+      feed_scaler: 1.100
+
+    motor0:
+      limit_neg_pin: gpio.35:low
+      hard_limits: false
+      pulloff_mm: 4.000
+      stepstick:
+        step_pin: I2SO.5
+        direction_pin: I2SO.6:high
+
+  z:
+    steps_per_mm: 80
+    max_rate_mm_per_min: 64000
+    acceleration_mm_per_sec2: 4800
+    max_travel_mm: 15
+    
+    motor0:
+      solenoid:
+        output_pin: gpio.32
+        pwm_hz: 100000
+        off_percent: 0.000
+        pull_percent: 100.000
+        hold_percent: 85.0
+        pull_ms: 50
+        direction_invert: false
+
+i2so:
+  bck_pin: gpio.16
+  data_pin: gpio.21
+  ws_pin: gpio.17
+
+spi:
+  miso_pin: gpio.12
+  mosi_pin: gpio.13
+  sck_pin: gpio.14
+
+sdcard:
+  cs_pin: gpio.15
+  card_detect_pin: NO_PIN
+
+control:
+  safety_door_pin: NO_PIN
+  reset_pin: NO_PIN
+  feed_hold_pin: NO_PIN
+  cycle_start_pin: NO_PIN
+  macro0_pin: gpio.33:low:pu
+  macro1_pin: NO_PIN
+  macro2_pin: NO_PIN
+  macro3_pin: NO_PIN
+
+macros:
+  startup_line0:
+  startup_line1:
+  macro0: $SD/Run=lasertest.gcode
+  macro1: $SD/Run=home.gcode
+  macro2:
+  macro3:
+
+coolant:
+  flood_pin: NO_PIN
+  mist_pin: NO_PIN
+  delay_ms: 0
+
+
+start:
+  must_home: false
+
+# 5,18,19,22,23,25,26,27,32,33,39,I2SO.7
+# SDA 0 / SCL 4
