@@ -17,7 +17,7 @@ kinematics:
 axes:
 
   x:
-    steps_per_mm: 40
+    steps_per_mm: 80.48
     max_rate_mm_per_min: 14000.000
     acceleration_mm_per_sec2: 1500.000
     max_travel_mm: 525.000
@@ -38,11 +38,11 @@ axes:
       pulloff_mm: 4.000
       stepstick:
         step_pin: I2SO.1
-        direction_pin: I2SO.2:low
+        direction_pin: I2SO.2:high
 
 
   y:
-    steps_per_mm: 40
+    steps_per_mm: 80.48
     max_rate_mm_per_min: 14000.000
     acceleration_mm_per_sec2: 1500.000
     max_travel_mm: 1000.000
@@ -66,7 +66,7 @@ axes:
         direction_pin: I2SO.6:low
 
   z:
-    steps_per_mm: 40
+    steps_per_mm: 80.48
     max_rate_mm_per_min: 64000
     acceleration_mm_per_sec2: 4800
     max_travel_mm: 5
