@@ -17,15 +17,15 @@ kinematics:
 axes:
 
   x:
-    steps_per_mm: 60
+    steps_per_mm: 80.48
     max_rate_mm_per_min: 8000.000
     acceleration_mm_per_sec2: 1500.000
     max_travel_mm: 600.000
     soft_limits: true
     homing:
-      cycle: 1
+      cycle: 2
       positive_direction: false
-      mpos_mm: 0.000
+      mpos_mm: 20.000
       feed_mm_per_min: 300.000
       seek_mm_per_min: 3000.000
       settle_ms: 500
@@ -42,15 +42,15 @@ axes:
 
 
   y:
-    steps_per_mm: 60
+    steps_per_mm: 80.48
     max_rate_mm_per_min: 8000.000
     acceleration_mm_per_sec2: 1500.000
-    max_travel_mm: 500.000
+    max_travel_mm: 450.000
     soft_limits: true
     homing:
-      cycle: 2
+      cycle: 3
       positive_direction: false
-      mpos_mm: 0.000
+      mpos_mm: 5.000
       feed_mm_per_min: 300.000
       seek_mm_per_min: 3000.000
       settle_ms: 500
@@ -67,13 +67,22 @@ axes:
 
   z:
     steps_per_mm: 60
-    max_rate_mm_per_min: 64000
-    acceleration_mm_per_sec2: 4800
-    max_travel_mm: 5
+    max_rate_mm_per_min: 4000
+    acceleration_mm_per_sec2: 1500
+    max_travel_mm: 11
+    homing:
+      cycle: 1
+      positive_direction: true
+      mpos_mm: 11.000
+      feed_mm_per_min: 300.000
+      seek_mm_per_min: 300.000
+      settle_ms: 500
+      seek_scaler: 1.100
+      feed_scaler: 1.100
     
     motor0:
       limit_neg_pin: gpio.34:low
-      hard_limits: false
+      hard_limits: true
       pulloff_mm: 4.000
       stepstick:
         step_pin: I2SO.3
