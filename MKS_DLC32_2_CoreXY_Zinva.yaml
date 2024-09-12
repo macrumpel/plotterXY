@@ -25,7 +25,7 @@ axes:
     homing:
       cycle: 2
       positive_direction: false
-      mpos_mm: 0.000
+      mpos_mm: -10.000
       feed_mm_per_min: 300.000
       seek_mm_per_min: 3000.000
       settle_ms: 500
@@ -50,7 +50,7 @@ axes:
     homing:
       cycle: 3
       positive_direction: false
-      mpos_mm: 0.000
+      mpos_mm: -10.000
       feed_mm_per_min: 300.000
       seek_mm_per_min: 3000.000
       settle_ms: 500
