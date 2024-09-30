@@ -2,11 +2,14 @@ board: MKS-DLC32 V2.1
 name: PlotterXY
 meta: 2024 Hubertus
 
-
+start:
+  must_home: true
+  deactivate_parking: false
+  check_limits: false
 
 stepping:
   engine: I2S_STATIC
-  idle_ms: 0
+  idle_ms: 255
   pulse_us: 4
   dir_delay_us: 1
   disable_delay_us: 0
@@ -17,7 +20,7 @@ kinematics:
 axes:
 
   x:
-    steps_per_mm: 80.48
+    steps_per_mm: 80
     max_rate_mm_per_min: 8000.000
     acceleration_mm_per_sec2: 1500.000
     max_travel_mm: 600.000
@@ -26,9 +29,9 @@ axes:
       cycle: 2
       positive_direction: false
       mpos_mm: -10.000
-      feed_mm_per_min: 300.000
+      feed_mm_per_min: 100.000
       seek_mm_per_min: 1000.000
-      settle_ms: 500
+      settle_ms: 250
       seek_scaler: 1.100
       feed_scaler: 1.100
 
@@ -42,7 +45,7 @@ axes:
 
 
   y:
-    steps_per_mm: 80.48
+    steps_per_mm: 80
     max_rate_mm_per_min: 8000.000
     acceleration_mm_per_sec2: 1500.000
     max_travel_mm: 450.000
@@ -51,9 +54,9 @@ axes:
       cycle: 3
       positive_direction: false
       mpos_mm: -10.000
-      feed_mm_per_min: 300.000
+      feed_mm_per_min: 100.000
       seek_mm_per_min: 1000.000
-      settle_ms: 500
+      settle_ms: 250
       seek_scaler: 1.100
       feed_scaler: 1.100
 
@@ -74,14 +77,14 @@ axes:
       cycle: 1
       positive_direction: true
       mpos_mm: 11.000
-      feed_mm_per_min: 300.000
+      feed_mm_per_min: 100.000
       seek_mm_per_min: 300.000
-      settle_ms: 500
+      settle_ms: 250
       seek_scaler: 1.500
       feed_scaler: 1.100
     
     motor0:
-      limit_neg_pin: gpio.34:low
+      limit_pos_pin: gpio.34:low
       hard_limits: true
       pulloff_mm: 2.000
       stepstick:
